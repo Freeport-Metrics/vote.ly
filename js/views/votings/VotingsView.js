@@ -6,8 +6,9 @@ define([
   'models/voting/VotingModel',
   'collections/votings/VotingsCollection',
   'views/votings/VotingsListView',
+  'views/votings/VotingsTableView',
   'text!templates/votings/votingsTemplate.html'
-], function($, _, Backbone, SidebarView, VotingModel, VotingsCollection, VotingsListView, votingsTemplate){
+], function($, _, Backbone, SidebarView, VotingModel, VotingsCollection, VotingsListView, VotingsTableView, votingsTemplate){
 
   var VotingsView = Backbone.View.extend({
     el: $("#page"),
@@ -27,9 +28,14 @@ define([
       
       votingsListView.render(); 
 
-      // add the sidebar 
-      var sidebarView = new SidebarView();
-      sidebarView.render();
+      var votingsTableView = new VotingsTableView(); 
+      
+      votingsTableView.render(); 
+
+
+      // dont add the sidebar 
+      //var sidebarView = new SidebarView();
+      //sidebarView.render();
 
     }
   });
